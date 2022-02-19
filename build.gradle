@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id "org.openjfx.javafxplugin" version "0.0.9"
+    id 'application'
+}
+
+group 'it.unimi.di.prog2'
+version '1.0-SNAPSHOT'
+
+application.mainClassName = 'it.unimi.di.prog2.esame.Main'
+
+javafx {
+    version = '15.0.1'
+    modules = [ 'javafx.controls']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:22.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "org.testfx:testfx-junit:4.0.15-alpha"
+    testImplementation "org.testfx:testfx-core:4.0.15-alpha"
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:unchecked'
+}
